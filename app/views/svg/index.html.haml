@@ -1,1 +1,18 @@
-%h1 test
+= render partial: 'icons.svg'
+.content
+  %h1 SVG Spritesheet Demo
+  .item
+    %svg.icon
+      %use{'xlink:href' => '#github'}
+    %h3 Github
+  .item
+    %svg.icon
+      %use{'xlink:href' => '#facebook'}
+    %h3 Facebook
+  .item
+    %svg.icon
+      %use{'xlink:href' => '#soundcloud'}
+    %h3 Soundcloud
+  .item
+    - svg_icon('reddit')
+    %h3 Reddit
