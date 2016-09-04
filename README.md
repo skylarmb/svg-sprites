@@ -1,14 +1,19 @@
 # SVG Sprite Sheet Demo
 
+## Spin it up locally
+1. `git clone git@github.com:skylarmb/svg-sprites.git`
+2. `bundle install`
+3. `spring rails server`
+
 ## TL;DR
 Render a hidden SVG in the body of your page that contains all the icons or graphics needed for the page.  This is the "sprite sheet". Use `<svg>` and `<use>` tags to reference the symbols defined in the sprite sheet instead of using icon fonts or `img` tags.
 
 ## How To
 
-##### The CSS
+#### The CSS
 There is a little but of CSS in `app/assets/stylesheets/styles.scss`. Nothing special.
 
-##### The SVG Sprite Sheet
+#### The SVG Sprite Sheet
 Check out `app/views/svg/_icons.svg`. Each icon consists of a `<symbol>` with an `id`, a `<title>` (optional?), and one or more `<path>`s. A tool like [icomoon](https://icomoon.io/app/) makes generating / managing these symbols easy.
 
     <symbol id="facebook" viewBox="0 0 32 32">
@@ -16,7 +21,7 @@ Check out `app/views/svg/_icons.svg`. Each icon consists of a `<symbol>` with an
       <path class="path1" d="..."></path>
     </symbol>
 
-##### The HTML (Haml)
+#### The HTML (Haml)
 In `app/views/svg/index.html.haml` we first render the SVG file just like we would a partial (neato huh?)
 
     = render partial: 'icons.svg'
@@ -31,7 +36,7 @@ Result:
 
 ![](http://i.imgur.com/rTFskwM.png)
 
-##### A view helper
+#### A view helper
 A handy view helper could be made, like in `app/helpers/svg_helper.rb`
 
     def svg_icon(id)
